@@ -1,26 +1,15 @@
-const btns = document.querySelectorAll(".tab-btn");
-const articles = document.querySelectorAll(".content");
-const about = document.querySelector(".about");
+const colors = ["green", "red", "rgba(133,122,200)", "#f15025"];
+const btn = document.getElementById("btn");
+const color = document.querySelector(".color");
 
-about.addEventListener("click", function (event) {
-    const id = event.target.dataset.id;
+btn.addEventListener("click", function () {
+  const randomNumber = getRandomNumber();
+  // console.log(randomNumber);
 
-    if (id) {
-        btns.forEach(function (btn) {
-            btn.classList.remove("active");
-            event.target.classList.add("active");
-        });
-        articles.forEach(function (article) {
-            article.classList.remove("active");
-        });
-        let showPara = document.getElementById(id);
-        showPara.classList.add("active");
-    }
-})
+  document.body.style.backgroundColor = colors[randomNumber];
+  color.textContent = colors[randomNumber];
+});
 
-
-// 1 = hämta variabler 1P
-// 2 = lägg till ett onclick event som kollar vilken btn som tryckts på. 1P
-// 3 = Om det finns ett id = ta bort active på alla knappar och lägg till active klass på btn. 1P
-// 4 = ta bort active från alla artiklar. 1P
-// 5 = Lägg till active klass på den paragraf som matchar id med btn som klickats. 1P
+function getRandomNumber() {
+  return Math.floor(Math.random() * colors.length);
+}
