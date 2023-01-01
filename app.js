@@ -1,20 +1,30 @@
-// classList - shows/gets all classes
-// contains - checks classList for specific class
-// add - add class
-// remove - remove class
-// toggle - toggles class
+//using selectors inside the element
+const questions = document.querySelectorAll(".question");
 
-const navToggle = document.querySelector(".nav-toggle");
-const links = document.querySelector(".links");
+questions.forEach(function (question) {
+  const btn = question.querySelector(".question-btn");
+  // console.log(btn);
 
-navToggle.addEventListener("click", function () {
-  // console.log(links.classList);
-  // console.log(links.classList.contains("random"));
-  // console.log(links.classList.contains("links"));
-  // if (links.classList.contains("show-links")) {
-  //   links.classList.remove("show-links");
-  // } else {
-  //   links.classList.add("show-links");
-  // }
-  links.classList.toggle("show-links");
+  btn.addEventListener("click", function () {
+    // console.log(question);
+
+    questions.forEach(function (item) {
+      if (item !== question) {
+        item.classList.remove("show-text");
+      }
+    });
+
+    question.classList.toggle("show-text");
+  });
 });
+
+// traversing the dom
+// const btns = document.querySelectorAll(".question-btn");
+
+// btns.forEach(function (btn) {
+//   btn.addEventListener("click", function (e) {
+//     const question = e.currentTarget.parentElement.parentElement;
+
+//     question.classList.toggle("show-text");
+//   });
+// });
