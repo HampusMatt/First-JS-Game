@@ -1,0 +1,30 @@
+.hero {
+    display: flex;
+    justify-content: center;
+    margin: 100px 0;
+}
+
+
+.title {
+    font-size: 40px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    margin: 20px;
+}
+
+
+/* Toggle hide */
+.hide-text {
+    display: none;
+}
