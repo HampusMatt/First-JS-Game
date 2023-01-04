@@ -26,5 +26,5 @@ button {
 
 /* Toggle hide */
 .hide-text {
-    display: none;
+    visibility: hidden;
 }
