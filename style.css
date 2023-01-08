@@ -25,6 +25,10 @@ button {
 
 
 /* Toggle hide */
-.hide-text {
-    visibility: hidden;
+.hide {
+    display: none;
+}
+
+.start-game {
+    display: none;
 }

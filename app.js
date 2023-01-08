@@ -69,19 +69,32 @@ const QUESTIONS = [
   ]
 
   const startBtn = document.querySelector(".start-btn");
-  const nextBtn = document.querySelector(".next-btn");
+  const trueBtn = document.querySelector(".trueA");
+  const falseBtn = document.querySelector(".falseA");
   const question = document.querySelector(".question");
 
   let currentItem = 0;
 
-  startBtn.addEventListener("click", function () {
+  startBtn.addEventListener("click", function (start) {
     question.textContent = QUESTIONS[currentItem].questionText;
+    startBtn.classList.add("hide");
+    falseBtn.classList.remove("start-game");
+    trueBtn.classList.remove("start-game");
   });
 
-  nextBtn.addEventListener("click", function () {
+  trueBtn.addEventListener("click", function () {
     currentItem ++;
     if (currentItem === QUESTIONS.length) {
     currentItem = 0;
     }
     question.textContent = QUESTIONS[currentItem].questionText;
   });
+
+  falseBtn.addEventListener("click", function () {
+    currentItem ++;
+    if (currentItem === QUESTIONS.length) {
+    currentItem = 0;
+    }
+    question.textContent = QUESTIONS[currentItem].questionText;
+  });
+
