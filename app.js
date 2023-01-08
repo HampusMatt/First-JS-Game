@@ -22,7 +22,7 @@ const QUESTIONS = [
     },
     {
       id: 3,
-      questionText: 'W333333 of USA?',
+      questionText: 'The beluga whale is often reffered to as the "canaries of the sea" due to their distinctive vocalizations',
       imgSrc: 'question_1.png',
       options: [
         'Ture',
@@ -31,24 +31,74 @@ const QUESTIONS = [
       correctAnswer: 'True'
     },
     {
-      id: 1,
-      questionText: 'What is the 4444444 of USA?',
+      id: 4,
+      questionText: 'The American bald eagle is an iconic bird, but has since 1970 been considered an endangered species',
       imgSrc: 'question_1.png',
       options: [
-        'DC',
-        'New York',
+        'True',
+        'False',
       ],
-      correctAnswer: 'DC'
+      correctAnswer: 'False'
     },
     {
-      id: 1,
-      questionText: 'What is the5555555 capital of USA?',
+      id: 5,
+      questionText: 'A giraffe has the same number of cervical vertebraes as a human',
       imgSrc: 'question_1.png',
       options: [
-        'DC',
-        'New York',
+        'True',
+        'False',
       ],
-      correctAnswer: 'DC'
+      correctAnswer: 'True'
+    },
+    {
+      id: 6,
+      questionText: 'A female house-fly can lay upp to 300 eggs in a lifetime',
+      imgSrc: 'question_1.png',
+      options: [
+        'True',
+        'False',
+      ],
+      correctAnswer: 'False'
+    },
+    {
+      id: 7,
+      questionText: 'Aside from the elephant and the rhino, the hippopotamus is the biggest land mammal',
+      imgSrc: 'question_1.png',
+      options: [
+        'True',
+        'False',
+      ],
+      correctAnswer: 'True'
+    },
+    {
+      id: 8,
+      questionText: 'A horse of either sex between the ages of 2 and 4 is called a "colt"',
+      imgSrc: 'question_1.png',
+      options: [
+        'True',
+        'False',
+      ],
+      correctAnswer: 'False'
+    },
+    {
+      id: 9,
+      questionText: 'A giraffe has the same number of cervical vertebraes as a human',
+      imgSrc: 'question_1.png',
+      options: [
+        'True',
+        'False',
+      ],
+      correctAnswer: 'True'
+    },
+    {
+      id: 10,
+      questionText: 'A giraffe has the same number of cervical vertebraes as a human',
+      imgSrc: 'question_1.png',
+      options: [
+        'True',
+        'False',
+      ],
+      correctAnswer: 'True'
     }
   ]
 
@@ -61,6 +111,7 @@ const QUESTIONS = [
   let score = 0;
   let currentItem = 0;
 
+  // Event listeners for btns
   startBtn.addEventListener("click", function () {
     question.textContent = QUESTIONS[currentItem].questionText;
     startBtn.classList.add("hide");
@@ -68,34 +119,31 @@ const QUESTIONS = [
     trueBtn.classList.remove("start-game");
   });
 
-  trueBtn.addEventListener("click", function () {
-    if (trueBtn.textContent === QUESTIONS[currentItem].correctAnswer) {
-      score++;
-    }
-
-    currentItem ++;
-    if (currentItem === QUESTIONS.length) {
-    displayScore ();
-    } else {
-    question.textContent = QUESTIONS[currentItem].questionText;
-    }
+  trueBtn.addEventListener("click", function() {
+    checkAnswer(trueBtn);
   });
 
-  falseBtn.addEventListener("click", function () {
-    if (falseBtn.textContent === QUESTIONS[currentItem].correctAnswer) {
-      score++;
-    }
-
-    currentItem ++;
-    if (currentItem === QUESTIONS.length) {
-    displayScore ();
-    } else {
-    question.textContent = QUESTIONS[currentItem].questionText;
-    }
+  falseBtn.addEventListener("click", function() {
+    checkAnswer(falseBtn);
   });
+
+
+// check answer function
+function checkAnswer(button) {
+  if (button.textContent === QUESTIONS[currentItem].correctAnswer) {
+    score++;
+  }
+
+  currentItem ++;
+  if (currentItem === QUESTIONS.length) {
+    displayScore ();
+  } else {
+    question.textContent = QUESTIONS[currentItem].questionText;
+  }
+}
+
 
 // display score function 
-
 function displayScore() {
   const playerScore = document.querySelector(".score");
   playerScore.innerHTML = `You scored ${score} out of 10!`;
@@ -116,7 +164,6 @@ function displayScore() {
 }
 
 // Play again
-
 playAgain.addEventListener ("click", function () {
   currentItem = 0;
   score = 0;
