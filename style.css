@@ -28,6 +28,10 @@ p {
     justify-content: center;
 }
 
+.score {
+    font-size: 30px;
+}
+
 button {
     margin: 20px;
 }

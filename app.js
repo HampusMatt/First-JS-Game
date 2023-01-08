@@ -1,9 +1,3 @@
-// const nextBtn = document.querySelector('.next-btn');
-// const question = document.querySelector('.question');
-
-// nextBtn.addEventListener('click', function() {
-//   question.classList.toggle('hide-text');
-// });
 
 const QUESTIONS = [
     {
@@ -62,6 +56,7 @@ const QUESTIONS = [
   const trueBtn = document.querySelector(".trueA");
   const falseBtn = document.querySelector(".falseA");
   const question = document.querySelector(".question");
+  const playAgain = document.querySelector(".play-again");
   
   let score = 0;
   let currentItem = 0;
@@ -81,8 +76,9 @@ const QUESTIONS = [
     currentItem ++;
     if (currentItem === QUESTIONS.length) {
     displayScore ();
-    }
+    } else {
     question.textContent = QUESTIONS[currentItem].questionText;
+    }
   });
 
   falseBtn.addEventListener("click", function () {
@@ -92,24 +88,25 @@ const QUESTIONS = [
 
     currentItem ++;
     if (currentItem === QUESTIONS.length) {
-    currentItem = 0;
-    }
+    displayScore ();
+    } else {
     question.textContent = QUESTIONS[currentItem].questionText;
+    }
   });
 
 // display score function 
 
 function displayScore() {
-  const scoreElement = document.querySelector(".score");
-  scoreElement.innerHTML = `You scored ${score} out of 10!`;
+  const playerScore = document.querySelector(".score");
+  playerScore.innerHTML = `You scored ${score} out of 10!`;
   if (score === 0) {
-    scoreElement.innerHTML += " That's just bad luck!";
+    playerScore.innerHTML += " That's just bad luck!";
   } else if (score > 0 && score <= 5) {
-    scoreElement.innerHTML += " You can do better than that!";
+    playerScore.innerHTML += " You can do better than that!";
   } else if (score > 5 && score < 10) {
-    scoreElement.innerHTML += " Well done!";
+    playerScore.innerHTML += " Well done!";
   } else {
-    scoreElement.innerHTML += " Oh My! You sure know your animals!";
+    playerScore.innerHTML += " Oh My! You sure know your animals!";
   }
 
   const sections = document.querySelectorAll(".main");
@@ -117,3 +114,17 @@ function displayScore() {
     section.classList.toggle("finnished-game");
   });
 }
+
+// Play again
+
+playAgain.addEventListener ("click", function () {
+  currentItem = 0;
+  score = 0;
+  
+  const sections = document.querySelectorAll(".main");
+  sections.forEach(function(section) {
+    section.classList.toggle("finnished-game");
+  });
+
+  question.textContent = QUESTIONS[currentItem].questionText;
+})
