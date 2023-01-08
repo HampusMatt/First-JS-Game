@@ -112,6 +112,7 @@ const QUESTIONS = [
   let currentItem = 0;
 
   // Event listeners for btns
+
   startBtn.addEventListener("click", function () {
     question.textContent = QUESTIONS[currentItem].questionText;
     startBtn.classList.add("hide");
@@ -129,6 +130,7 @@ const QUESTIONS = [
 
 
 // check answer function
+
 function checkAnswer(button) {
   if (button.textContent === QUESTIONS[currentItem].correctAnswer) {
     score++;
@@ -142,8 +144,8 @@ function checkAnswer(button) {
   }
 }
 
-
 // display score function 
+
 function displayScore() {
   const playerScore = document.querySelector(".score");
   playerScore.innerHTML = `You scored ${score} out of 10!`;
@@ -164,6 +166,7 @@ function displayScore() {
 }
 
 // Play again
+
 playAgain.addEventListener ("click", function () {
   currentItem = 0;
   score = 0;
