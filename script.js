@@ -81,23 +81,23 @@ const questions = [
     },
     {
       id: 9,
-      questionText: 'Statement 9',
+      questionText: 'The male green anaconda is 2x the size of the female counterpart',
       imgSrc: 'question_1.png',
       options: [
         'True',
         'False',
       ],
-      correctAnswer: 'True'
+      correctAnswer: 'false'
     },
     {
       id: 10,
-      questionText: 'Statement 10',
+      questionText: 'The den of the otter is called a "sofa"',
       imgSrc: 'question_1.png',
       options: [
         'True',
         'False',
       ],
-      correctAnswer: 'True'
+      correctAnswer: 'false'
     }
   ];
 
