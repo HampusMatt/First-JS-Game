@@ -2,7 +2,7 @@ const questions = [
     {
       id: 1,
       questionText: 'The sloth is so slow moving that algae can grow in their fur',
-      imgSrc: 'question_1.png',
+      imgSrc: 'img.',
       options: [
         'True',
         'False',
@@ -139,6 +139,11 @@ function onPlayAgainClick() {
 function displayNextQuestion() {
     currentItem ++;
     question.textContent = questions[currentItem].questionText;
+    question.imgSrc = questions[currentItem].imgSrc
+
+    // Reset the background color of the buttons
+  trueBtn.style.backgroundColor = '';
+  falseBtn.style.backgroundColor = '';
 }
 
 function resetQuizUI() {
@@ -150,17 +155,35 @@ function resetQuizUI() {
 
 
 // check answer function
+// function checkAnswer(selectedOption) {
+//   if (selectedOption === questions[currentItem].correctAnswer) {
+//     score++;
+//   }
+
+//   if (currentItem === questions.length - 1) {
+//     onGameOver();
+//   } else {
+//     setTimeout (displayNextQuestion, 1000);
+//   }
+// }
+
 function checkAnswer(selectedOption) {
-  if (selectedOption === questions[currentItem].correctAnswer) {
-    score++;
+    if (selectedOption === questions[currentItem].correctAnswer) {
+      score++;
+      // Set the background color of the clicked button to green
+      document.activeElement.style.backgroundColor = 'green';
+    } else {
+      // Set the background color of the clicked button to red
+      document.activeElement.style.backgroundColor = 'red';
+    }
+  
+    if (currentItem === questions.length - 1) {
+      onGameOver();
+    } else {
+      setTimeout (displayNextQuestion, 1000);
+    }
   }
 
-  if (currentItem === questions.length - 1) {
-    onGameOver();
-  } else {
-    displayNextQuestion();
-  }
-}
 
 function onGameOver() {
     displayScore();

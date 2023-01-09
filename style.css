@@ -52,6 +52,12 @@ button:hover {
     background-color: aquamarine;
 }
 
+.rules-section {
+    display: flex;
+    margin-top: 200px;
+    justify-content: center;
+}
+
 
 /* Toggle hide */
 .hide {
