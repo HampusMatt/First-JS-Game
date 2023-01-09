@@ -1,7 +1,7 @@
 
-const QUESTIONS = [
+const questions = [
     {
-      id: 2,
+      id: 1,
       questionText: 'The sloth is so slow moving that algae can grow in their fur',
       imgSrc: 'question_1.png',
       options: [
@@ -82,7 +82,7 @@ const QUESTIONS = [
     },
     {
       id: 9,
-      questionText: 'A giraffe has the same number of cervical vertebraes as a human',
+      questionText: 'Statement 9',
       imgSrc: 'question_1.png',
       options: [
         'True',
@@ -92,7 +92,7 @@ const QUESTIONS = [
     },
     {
       id: 10,
-      questionText: 'A giraffe has the same number of cervical vertebraes as a human',
+      questionText: 'Statement 10',
       imgSrc: 'question_1.png',
       options: [
         'True',
@@ -108,13 +108,14 @@ const QUESTIONS = [
   const question = document.querySelector(".question");
   const playAgain = document.querySelector(".play-again");
   
+  
   let score = 0;
   let currentItem = 0;
 
   // Event listeners for btns
 
   startBtn.addEventListener("click", function () {
-    question.textContent = QUESTIONS[currentItem].questionText;
+    question.textContent = questions[currentItem].questionText;
     startBtn.classList.add("hide");
     falseBtn.classList.remove("start-game");
     trueBtn.classList.remove("start-game");
@@ -132,15 +133,15 @@ const QUESTIONS = [
 // check answer function
 
 function checkAnswer(button) {
-  if (button.textContent === QUESTIONS[currentItem].correctAnswer) {
+  if (button.textContent === questions[currentItem].correctAnswer) {
     score++;
   }
 
   currentItem ++;
-  if (currentItem === QUESTIONS.length) {
+  if (currentItem === questions.length) {
     displayScore ();
   } else {
-    question.textContent = QUESTIONS[currentItem].questionText;
+    question.textContent = questions[currentItem].questionText;
   }
 }
 
@@ -176,5 +177,12 @@ playAgain.addEventListener ("click", function () {
     section.classList.toggle("finnished-game");
   });
 
-  question.textContent = QUESTIONS[currentItem].questionText;
+  question.textContent = questions[currentItem].questionText;
 })
+
+// // Show answer key after the game
+// checkAnswer.addEventListener("click", function () {
+//   // make a list for every iteration of the array, pull the value of 1) id 2) questionText and 3) checkanswer.
+//   // display that in a list (using the appendchild method????)
+//   // I do want the score to still be visible, but the buttons need to be under the new list.
+// })
