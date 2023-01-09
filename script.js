@@ -139,7 +139,7 @@ function onPlayAgainClick() {
 
 function displayFirstQuestion () {
     question.textContent = questions[currentItem].questionText;
-    img.imgSrc = questions[currentItem].imgSrc;
+    img.src = questions[currentItem].imgSrc;
 
     trueBtn.style.backgroundColor = '';
     falseBtn.style.backgroundColor = '';
