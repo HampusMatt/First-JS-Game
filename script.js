@@ -2,7 +2,7 @@ const questions = [
     {
       id: 1,
       questionText: 'The sloth is so slow moving that algae can grow in their fur',
-      imgSrc: 'img.',
+      imgSrc: 'img/pexels-denys-gromov-4835276.jpg',
       options: [
         'True',
         'False',
@@ -106,6 +106,7 @@ const startBtn = document.querySelector(".start-btn");
 const trueBtn = document.querySelector(".trueA");
 const falseBtn = document.querySelector(".falseA");
 const question = document.querySelector(".question");
+const img = document.querySelector(".image");
 const playAgain = document.querySelector(".play-again");
 
 let score, currentItem;
@@ -114,7 +115,7 @@ function onStartButtonClick() {
     startBtn.classList.add("hide");
     falseBtn.classList.remove("hide");
     trueBtn.classList.remove("hide");
-    displayNextQuestion();
+    displayFirstQuestion();
 }
 
 function initQuizVariables() {
@@ -133,13 +134,20 @@ function onFalseOptionClick() {
 function onPlayAgainClick() {
     initQuizVariables();
     resetQuizUI();
-    displayNextQuestion();
+    displayFirstQuestion();
+}
+
+function displayFirstQuestion () {
+    question.textContent = questions[currentItem].questionText;
+    img.imgSrc = questions[currentItem].imgSrc;
+
+    trueBtn.style.backgroundColor = '';
+    falseBtn.style.backgroundColor = '';
 }
 
 function displayNextQuestion() {
     currentItem ++;
     question.textContent = questions[currentItem].questionText;
-    question.imgSrc = questions[currentItem].imgSrc
 
     // Reset the background color of the buttons
   trueBtn.style.backgroundColor = '';

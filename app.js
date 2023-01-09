@@ -106,6 +106,7 @@ const questions = [
   const trueBtn = document.querySelector(".trueA");
   const falseBtn = document.querySelector(".falseA");
   const question = document.querySelector(".question");
+  const img = document.querySelector("image");
   const playAgain = document.querySelector(".play-again");
   
   
