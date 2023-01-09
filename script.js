@@ -2,7 +2,7 @@ const questions = [
     {
       id: 1,
       questionText: 'The sloth is so slow moving that algae can grow in their fur',
-      imgSrc: 'img/pexels-denys-gromov-4835276.jpg',
+      imgSrc: '',
       options: [
         'True',
         'False',
