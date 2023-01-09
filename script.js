@@ -2,7 +2,7 @@ const questions = [
     {
       id: 1,
       questionText: 'The sloth is so slow moving that algae can grow in their fur',
-      imgSrc: '',
+      imgSrc: 'img/sloth.jpg.jpg',
       options: [
         'True',
         'False',
@@ -12,7 +12,7 @@ const questions = [
     {
       id: 2,
       questionText: 'The horn of a rhino is actually made of hair',
-      imgSrc: 'question_1.png',
+      imgSrc: 'img/rhino.jpg.jpg',
       options: [
         'True',
         'False',
@@ -22,7 +22,7 @@ const questions = [
     {
       id: 3,
       questionText: 'The beluga whale is often reffered to as the "canaries of the sea" due to their distinctive vocalizations',
-      imgSrc: 'question_1.png',
+      imgSrc: 'img/beluga.jpg.jpg',
       options: [
         'Ture',
         'False',
@@ -32,7 +32,7 @@ const questions = [
     {
       id: 4,
       questionText: 'The American bald eagle is an iconic bird, but has since 1970 been considered an endangered species',
-      imgSrc: 'question_1.png',
+      imgSrc: 'img/eagle.jpg.jpg',
       options: [
         'True',
         'False',
@@ -42,7 +42,7 @@ const questions = [
     {
       id: 5,
       questionText: 'A giraffe has the same number of cervical vertebraes as a human',
-      imgSrc: 'question_1.png',
+      imgSrc: 'img/giraffe.jpg.jpg',
       options: [
         'True',
         'False',
@@ -52,7 +52,7 @@ const questions = [
     {
       id: 6,
       questionText: 'A female house-fly can lay upp to 300 eggs in a lifetime',
-      imgSrc: 'question_1.png',
+      imgSrc: 'img/houseFly.jpg.jpg',
       options: [
         'True',
         'False',
@@ -62,7 +62,7 @@ const questions = [
     {
       id: 7,
       questionText: 'Aside from the elephant and the rhino, the hippopotamus is the biggest land mammal',
-      imgSrc: 'question_1.png',
+      imgSrc: 'img/hippo.jpg.jpg',
       options: [
         'True',
         'False',
@@ -72,7 +72,7 @@ const questions = [
     {
       id: 8,
       questionText: 'A horse of either sex between the ages of 2 and 4 is called a "colt"',
-      imgSrc: 'question_1.png',
+      imgSrc: 'img/horse.jpg.jpg',
       options: [
         'True',
         'False',
@@ -148,6 +148,7 @@ function displayFirstQuestion () {
 function displayNextQuestion() {
     currentItem ++;
     question.textContent = questions[currentItem].questionText;
+    img.src = questions[currentItem].imgSrc;
 
     // Reset the background color of the buttons
   trueBtn.style.backgroundColor = '';
@@ -186,7 +187,7 @@ function checkAnswer(selectedOption) {
     }
   
     if (currentItem === questions.length - 1) {
-      onGameOver();
+      setTimeout(onGameOver, 1000);
     } else {
       setTimeout (displayNextQuestion, 1000);
     }
